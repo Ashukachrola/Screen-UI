@@ -7,6 +7,33 @@ class FirstPage extends StatelessWidget {
     // TODO: implement build
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.black,
+          elevation: 0,
+          leading: Row(
+            //mainAxisSize: MainAxisSize.min,
+            children: List.generate(
+              3,
+              (index) {
+                return Icon(
+                  Icons.remove,
+                  color: Colors.white,
+                  size: 15,
+                );
+              },
+            ),
+          ),
+          actions: [
+            ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "skip",
+                      style: TextStyle(color: Colors.white),
+                    )))
+          ],
+        ),
         body: Column(
           children: [
             Expanded(
@@ -17,6 +44,15 @@ class FirstPage extends StatelessWidget {
                     "assets/images/burgerimage.jpg",
                     fit: BoxFit.fitHeight,
                   ),
+                  // Container(
+                  //   decoration: BoxDecoration(
+                  //     borderRadius: BorderRadius.circular(30)
+                  //   ),
+                  //   child: Align(
+                  //     alignment: Alignment.topRight,
+                  //     child: TextButton(onPressed: () {}, child: Text("skip",style: TextStyle(color: Colors.white),)),
+                  //   ),
+                  // ),
                   Padding(
                     padding: const EdgeInsets.only(top: 30),
                     child: Column(

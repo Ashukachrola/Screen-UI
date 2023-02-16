@@ -114,31 +114,38 @@ class _SecondPageState extends State<SecondPage> {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 20, 10, 0),
-                    child: Stack(
-                      children: [
-                        Container(
-                          width: 100,
-                          height: 100,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(20),
-                            child: Image.asset(
-                              'assets/images/burger image second page (1)-removebg-preview.jpg',
-                              width: 100,
-                              height: 100,
-                              fit: BoxFit.cover,
+                  InkWell(
+                    onTap: (){
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                            return ThirdPage();
+                      },));
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 20, 10, 0),
+                      child: Stack(
+                        children: [
+                          Container(
+                            width: 100,
+                            height: 100,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(
+                                'assets/images/burger image second page (1)-removebg-preview.jpg',
+                                width: 100,
+                                height: 100,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 70),
-                          child: Text(
-                            "Burger",
-                            style: TextStyle(fontSize: 20, color: Colors.white),
-                          ),
-                        )
-                      ],
+                          Padding(
+                            padding: const EdgeInsets.only(top: 70),
+                            child: Text(
+                              "Burger",
+                              style: TextStyle(fontSize: 20, color: Colors.white),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                   Padding(

@@ -202,10 +202,14 @@ class ThirdPage extends StatelessWidget {
                       padding: const EdgeInsets.only(left: 30),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(30),
-                        child: Image.asset(
-                          'assets/images/three layer burger.jpg',
-                          height: 150,
-                          width: 150,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(30),
+                          child: Image.asset(
+                            'assets/images/three layer burger.jpg',
+                            height: 150,
+                            width: 150,
+                            fit: BoxFit.fill,
+                          ),
                         ),
                       ),
                     ),
@@ -239,9 +243,10 @@ class ThirdPage extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(30),
                         child: Image.asset(
-                          'assets/images/double cheese burger.jpg',
+                          'assets/images/three layer burger.jpg',
                           height: 150,
                           width: 150,
+                          fit: BoxFit.fill,
                         ),
                       ),
                     ),
@@ -277,13 +282,14 @@ class ThirdPage extends StatelessWidget {
                   Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(left: 5),
+                        padding: const EdgeInsets.only(left: 30),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(30),
                           child: Image.asset(
-                            'assets/images/double cheese burger.jpg',
+                            'assets/images/three layer burger.jpg',
                             height: 150,
                             width: 150,
+                            fit: BoxFit.fill,
                           ),
                         ),
                       ),
@@ -317,9 +323,10 @@ class ThirdPage extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(30),
                           child: Image.asset(
-                            'assets/images/double cheese burger.jpg',
+                            'assets/images/three layer burger.jpg',
                             height: 150,
                             width: 150,
+                            fit: BoxFit.fill,
                           ),
                         ),
                       ),
