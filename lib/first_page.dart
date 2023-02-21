@@ -14,7 +14,7 @@ class FirstPage extends StatelessWidget {
             //mainAxisSize: MainAxisSize.min,
             children: List.generate(
               3,
-              (index) {
+                  (index) {
                 return Icon(
                   Icons.remove,
                   color: Colors.white,
@@ -104,7 +104,7 @@ class FirstPage extends StatelessWidget {
                                     color: Colors.black, fontSize: 9)),
                             style: ButtonStyle(
                               backgroundColor:
-                                  MaterialStateProperty.all(Colors.white),
+                              MaterialStateProperty.all(Colors.white),
                               shape: MaterialStateProperty.all(
                                 RoundedRectangleBorder(
                                   // Change your radius here

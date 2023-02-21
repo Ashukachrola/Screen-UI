@@ -1,3 +1,5 @@
+import 'package:assignment_project/add_food.dart';
+import 'package:assignment_project/forthpage.dart';
 import 'package:assignment_project/second_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -81,9 +83,9 @@ class ThirdPage extends StatelessWidget {
                                 children: [
                                   Container(
                                       child: Icon(
-                                    Icons.verified_user,
-                                    color: Colors.green,
-                                  )),
+                                        Icons.verified_user,
+                                        color: Colors.green,
+                                      )),
                                   Container(child: Text("Verified"))
                                 ],
                               ),
@@ -180,7 +182,7 @@ class ThirdPage extends StatelessWidget {
                       child: Text(
                         "All menu",
                         style:
-                            TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                        TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                       ),
                     ),
                     Container(
@@ -358,6 +360,60 @@ class ThirdPage extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        items: [
+          BottomNavigationBarItem(
+              icon: IconButton(
+                onPressed: () {
+                  Navigator.of(context).pop(MaterialPageRoute(
+                    builder: (context) => SecondPage(),
+                  ));
+                },
+                icon: Icon(Icons.arrow_back_ios, color: Colors.black,),
+              ),
+              label: "Bacck to Second page"),
+          // BottomNavigationBarItem(
+          //     icon: IconButton(
+          //       onPressed: () {
+          //         Navigator.of(context).push(MaterialPageRoute(
+          //           builder: (context) => ForthPage(),
+          //         ));
+          //       },
+          //       icon: Icon(Icons.arrow_forward_ios, color: Colors.black,),
+          //     ),
+          //     label: "Move to third page"),
+          BottomNavigationBarItem(
+              icon: IconButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => AddFood(null),
+                  ));
+                },
+                icon: Icon(
+                  Icons.add,
+                  color: Colors.black,
+                ),
+              ),
+              label: ""),
+          BottomNavigationBarItem(
+              icon: IconButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => ForthPage(),
+                  ));
+                },
+                icon: Icon(
+                  Icons.dataset,
+                  color: Colors.black,
+                ),
+              ),
+              label: ""),
+        ],
       ),
     );
     throw UnimplementedError();

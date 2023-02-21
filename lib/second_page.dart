@@ -117,7 +117,7 @@ class _SecondPageState extends State<SecondPage> {
                   InkWell(
                     onTap: (){
                       Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                            return ThirdPage();
+                        return ThirdPage();
                       },));
                     },
                     child: Padding(
@@ -241,7 +241,7 @@ class _SecondPageState extends State<SecondPage> {
                     child: Text(
                       "Food of the Day",
                       style:
-                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                      TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     ),
                   ),
                   Container(
@@ -301,8 +301,8 @@ class _SecondPageState extends State<SecondPage> {
                                     radius: 20,
                                     backgroundImage: NetworkImage(
                                       'https://www.shutterstock.com/shutterstock/photos/233098300/displa'
-                                      'y_1500/stock-photo-zagreb-croatia-november-fast-food-chain-burger-ki'
-                                      'ng-logo-printed-on-food-box-233098300.jpg',
+                                          'y_1500/stock-photo-zagreb-croatia-november-fast-food-chain-burger-ki'
+                                          'ng-logo-printed-on-food-box-233098300.jpg',
                                     ),
                                   ),
                                 ),
@@ -310,7 +310,7 @@ class _SecondPageState extends State<SecondPage> {
                             ),
                             Padding(
                               padding:
-                                  const EdgeInsets.only(left: 25, top: 140),
+                              const EdgeInsets.only(left: 25, top: 140),
                               child: Text(
                                 "Burgur King, Bali,\nKuta Rock City",
                                 style: TextStyle(
@@ -372,7 +372,7 @@ class _SecondPageState extends State<SecondPage> {
                             ),
                             Padding(
                               padding:
-                                  const EdgeInsets.only(left: 25, top: 140),
+                              const EdgeInsets.only(left: 25, top: 140),
                               child: Text(
                                 "McDonald's, Teuku,\nUmar Bali",
                                 style: TextStyle(
@@ -439,7 +439,7 @@ class _SecondPageState extends State<SecondPage> {
                             ),
                             Padding(
                               padding:
-                                  const EdgeInsets.only(left: 25, top: 140),
+                              const EdgeInsets.only(left: 25, top: 140),
                               child: Text(
                                 "Ice Cream,\nIce cream",
                                 style: TextStyle(
@@ -501,7 +501,7 @@ class _SecondPageState extends State<SecondPage> {
                             ),
                             Padding(
                               padding:
-                                  const EdgeInsets.only(left: 25, top: 140),
+                              const EdgeInsets.only(left: 25, top: 140),
                               child: Text(
                                 "KFC \n Chicken",
                                 style: TextStyle(
@@ -564,8 +564,8 @@ class _SecondPageState extends State<SecondPage> {
               icon: IconButton(
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => ThirdPage(),
-                ));
+                    builder: (context) => ThirdPage(),
+                  ));
                 },
                 icon: Icon(
                   Icons.mail,
