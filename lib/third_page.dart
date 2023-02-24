@@ -377,16 +377,6 @@ class ThirdPage extends StatelessWidget {
                 icon: Icon(Icons.arrow_back_ios, color: Colors.black,),
               ),
               label: "Bacck to Second page"),
-          // BottomNavigationBarItem(
-          //     icon: IconButton(
-          //       onPressed: () {
-          //         Navigator.of(context).push(MaterialPageRoute(
-          //           builder: (context) => ForthPage(),
-          //         ));
-          //       },
-          //       icon: Icon(Icons.arrow_forward_ios, color: Colors.black,),
-          //     ),
-          //     label: "Move to third page"),
           BottomNavigationBarItem(
               icon: IconButton(
                 onPressed: () {
