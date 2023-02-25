@@ -509,7 +509,7 @@ class _SecondPageState extends State<SecondPage> {
                                 ),
                                 textAlign: TextAlign.center,
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),

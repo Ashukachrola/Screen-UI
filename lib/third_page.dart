@@ -1,10 +1,17 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:assignment_project/add_food.dart';
 import 'package:assignment_project/forthpage.dart';
 import 'package:assignment_project/second_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ThirdPage extends StatelessWidget {
+class ThirdPage extends StatefulWidget {
+  @override
+  State<ThirdPage> createState() => _ThirdPageState();
+}
+
+class _ThirdPageState extends State<ThirdPage> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -36,7 +43,7 @@ class ThirdPage extends StatelessWidget {
       ),
       //backgroundColor: Colors.white30,
       body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
+        // scrollDirection: Axis.vertical,
         child: Column(
           children: [
             Padding(
@@ -196,168 +203,127 @@ class ThirdPage extends StatelessWidget {
                 ),
               ),
             ),
-            Row(
-              children: [
-                Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 30),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(30),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(30),
-                          child: Image.asset(
-                            'assets/images/three layer burger.jpg',
-                            height: 150,
-                            width: 150,
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Text("BigMac Cheese \n -1,88",style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 15),
-                      child: ElevatedButton(
-                        onPressed: () {
-                        },
-                        child: Text('Add to bag',
-                            style: TextStyle(
-                                color: Colors.white, fontSize: 10)),
-                        style: ButtonStyle(
-                          backgroundColor:
-                          MaterialStateProperty.all(Colors.black),
-                          shape: MaterialStateProperty.all(
-                            RoundedRectangleBorder(
-                              // Change your radius here
-                              borderRadius: BorderRadius.circular(10),
+            FutureBuilder<http.Response>(
+              builder: (context, snapshot) {
+                if (snapshot != null && snapshot.hasData) {
+                  return ListView.builder(
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                        onTap: () {
+                          Navigator.of(context)
+                              .push(
+                            MaterialPageRoute(
+                              builder: (context) => AddFood(
+                                  jsonDecode(snapshot.data!.body.toString())[index]),
                             ),
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-                Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 5),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(30),
-                        child: Image.asset(
-                          'assets/images/three layer burger.jpg',
-                          height: 150,
-                          width: 150,
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                    ),
-                    Text("Double Cheese \n -1,88",style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 15),
-                      child: ElevatedButton(
-                        onPressed: () {
+                          )
+                              .then(
+                                (value) {
+                              if (value == true) {
+                                setState(() {});
+                              }
+                            },
+                          );
                         },
-                        child: Text('Add to bag',
-                            style: TextStyle(
-                                color: Colors.white, fontSize: 10)),
-                        style: ButtonStyle(
-                          backgroundColor:
-                          MaterialStateProperty.all(Colors.black),
-                          shape: MaterialStateProperty.all(
-                            RoundedRectangleBorder(
-                              // Change your radius here
-                              borderRadius: BorderRadius.circular(10),
+                        child: Column(
+                          children: [
+                            Container(
+                              padding: EdgeInsets.all(20),
+                              decoration: BoxDecoration(
+                                // borderRadius: BorderRadius.circular(20)
+                              ),
+                              height: 200,
+                              width: double.infinity,
+                              child: Image(
+                                  image: NetworkImage((jsonDecode(
+                                      snapshot.data!.body.toString())[index]
+                                  ['avatar'])
+                                      .toString())),
                             ),
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 20),
-              child: Row(
-                children: [
-                  Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 30),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(30),
-                          child: Image.asset(
-                            'assets/images/three layer burger.jpg',
-                            height: 150,
-                            width: 150,
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                      ),
-                      Text("Double Cheese \n -1,88",style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 15),
-                        child: ElevatedButton(
-                          onPressed: () {
-                          },
-                          child: Text('Add to bag',
+                            Text(
+                              (jsonDecode(snapshot.data!.body.toString())[index]
+                              ['name'])
+                                  .toString(),
                               style: TextStyle(
-                                  color: Colors.white, fontSize: 10)),
-                          style: ButtonStyle(
-                            backgroundColor:
-                            MaterialStateProperty.all(Colors.black),
-                            shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                // Change your radius here
-                                borderRadius: BorderRadius.circular(10),
+                                fontWeight: FontWeight.w900,
+                                fontSize: 20,
                               ),
                             ),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 5),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(30),
-                          child: Image.asset(
-                            'assets/images/three layer burger.jpg',
-                            height: 150,
-                            width: 150,
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                      ),
-                      Text("Double Cheese \n -1,88",style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 15),
-                        child: ElevatedButton(
-                          onPressed: () {
-                          },
-                          child: Text('Add to bag',
-                              style: TextStyle(
-                                  color: Colors.white, fontSize: 10)),
-                          style: ButtonStyle(
-                            backgroundColor:
-                            MaterialStateProperty.all(Colors.black),
-                            shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                // Change your radius here
-                                borderRadius: BorderRadius.circular(10),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.of(context)
+                                          .push(
+                                        MaterialPageRoute(
+                                          builder: (context) => AddFood(jsonDecode(
+                                              snapshot.data!.body.toString())[index]),
+                                        ),
+                                      )
+                                          .then(
+                                            (value) {
+                                          if (value == true) {
+                                            setState(() {});
+                                          }
+                                        },
+                                      );
+                                    },
+                                    child: Container(
+                                      padding: EdgeInsets.all(15),
+                                      margin: EdgeInsets.all(10),
+                                      decoration: BoxDecoration(
+                                        // borderRadius: BorderRadius.circular(20),
+                                          border: Border.all(),
+                                          color: Colors.green),
+                                      child: Text(
+                                        "Edit",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 15,
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      deleteFood((jsonDecode(snapshot.data!.body
+                                          .toString())[index]['id']))
+                                          .then(
+                                            (value) {
+                                          setState(() {});
+                                        },
+                                      );
+                                    },
+                                    child: Container(
+                                      padding: EdgeInsets.all(15),
+                                      margin: EdgeInsets.all(10),
+                                      decoration: BoxDecoration(
+                                        // borderRadius: BorderRadius.circular(20),
+                                          border: Border.all(),
+                                          color: Colors.red),
+                                      child: Text("Delete",
+                                          style: TextStyle(color: Colors.white)),
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ),
-                          ),
+                            )
+                          ],
                         ),
-                      )
-                    ],
-                  ),
-                ],
-              ),
-            ),
+                      );
+                    },
+                    itemCount: jsonDecode(snapshot.data!.body.toString()).length,
+                  );
+                } else {
+                  return Center(child: CircularProgressIndicator());
+                }
+              },
+              future: getFood(),
+            )
           ],
         ),
       ),
@@ -407,5 +373,16 @@ class ThirdPage extends StatelessWidget {
       ),
     );
     throw UnimplementedError();
+  }
+
+  Future<http.Response> getFood() async {
+    var response = await http
+        .get(Uri.parse("https://637f5cd65b1cc8d6f942aebf.mockapi.io/food"));
+    return response;
+  }
+
+  Future<void> deleteFood(id) async {
+    var response1 = await http.delete(
+        Uri.parse("https://637f5cd65b1cc8d6f942aebf.mockapi.io/food/$id"));
   }
 }

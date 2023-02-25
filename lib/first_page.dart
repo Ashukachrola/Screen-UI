@@ -14,7 +14,7 @@ class FirstPage extends StatelessWidget {
             //mainAxisSize: MainAxisSize.min,
             children: List.generate(
               3,
-                  (index) {
+              (index) {
                 return Icon(
                   Icons.remove,
                   color: Colors.white,
@@ -25,13 +25,15 @@ class FirstPage extends StatelessWidget {
           ),
           actions: [
             ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      "skip",
-                      style: TextStyle(color: Colors.white),
-                    )))
+              borderRadius: BorderRadius.circular(10),
+              child: TextButton(
+                onPressed: () {},
+                child: Text(
+                  "skip",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            )
           ],
         ),
         body: Column(
@@ -44,15 +46,6 @@ class FirstPage extends StatelessWidget {
                     "assets/images/burgerimage.jpg",
                     fit: BoxFit.fitHeight,
                   ),
-                  // Container(
-                  //   decoration: BoxDecoration(
-                  //     borderRadius: BorderRadius.circular(30)
-                  //   ),
-                  //   child: Align(
-                  //     alignment: Alignment.topRight,
-                  //     child: TextButton(onPressed: () {}, child: Text("skip",style: TextStyle(color: Colors.white),)),
-                  //   ),
-                  // ),
                   Padding(
                     padding: const EdgeInsets.only(top: 30),
                     child: Column(
@@ -104,7 +97,7 @@ class FirstPage extends StatelessWidget {
                                     color: Colors.black, fontSize: 9)),
                             style: ButtonStyle(
                               backgroundColor:
-                              MaterialStateProperty.all(Colors.white),
+                                  MaterialStateProperty.all(Colors.white),
                               shape: MaterialStateProperty.all(
                                 RoundedRectangleBorder(
                                   // Change your radius here
