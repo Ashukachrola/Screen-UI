@@ -1,8 +1,7 @@
 import 'dart:convert';
-import 'package:http/http.dart' as http;
 import 'package:assignment_project/add_food.dart';
-import 'package:assignment_project/forthpage.dart';
 import 'package:assignment_project/second_page.dart';
+import 'package:http/http.dart' as http;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -33,17 +32,23 @@ class _ThirdPageState extends State<ThirdPage> {
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Icon(Icons.menu_open,color: Colors.black,),
+            child: Icon(
+              Icons.menu_open,
+              color: Colors.black,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Icon(Icons.info_outline,color: Colors.black,),
+            child: Icon(
+              Icons.info_outline,
+              color: Colors.black,
+            ),
           )
         ],
       ),
       //backgroundColor: Colors.white30,
       body: SingleChildScrollView(
-        // scrollDirection: Axis.vertical,
+        scrollDirection: Axis.vertical,
         child: Column(
           children: [
             Padding(
@@ -188,8 +193,8 @@ class _ThirdPageState extends State<ThirdPage> {
                       padding: const EdgeInsets.all(15.0),
                       child: Text(
                         "All menu",
-                        style:
-                        TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 25, fontWeight: FontWeight.bold),
                       ),
                     ),
                     Container(
@@ -208,14 +213,15 @@ class _ThirdPageState extends State<ThirdPage> {
                 if (snapshot != null && snapshot.hasData) {
                   return ListView.builder(
                     shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
                           Navigator.of(context)
                               .push(
                             MaterialPageRoute(
-                              builder: (context) => AddFood(
-                                  jsonDecode(snapshot.data!.body.toString())[index]),
+                              builder: (context) => AddFood(jsonDecode(
+                                  snapshot.data!.body.toString())[index]),
                             ),
                           )
                               .then(
@@ -236,9 +242,9 @@ class _ThirdPageState extends State<ThirdPage> {
                               height: 200,
                               width: double.infinity,
                               child: Image(
-                                  image: NetworkImage((jsonDecode(
-                                      snapshot.data!.body.toString())[index]
-                                  ['avatar'])
+                                  image: NetworkImage((jsonDecode(snapshot
+                                      .data!.body
+                                      .toString())[index]['avatar'])
                                       .toString())),
                             ),
                             Text(
@@ -260,8 +266,9 @@ class _ThirdPageState extends State<ThirdPage> {
                                       Navigator.of(context)
                                           .push(
                                         MaterialPageRoute(
-                                          builder: (context) => AddFood(jsonDecode(
-                                              snapshot.data!.body.toString())[index]),
+                                          builder: (context) => AddFood(
+                                              jsonDecode(snapshot.data!.body
+                                                  .toString())[index]),
                                         ),
                                       )
                                           .then(
@@ -306,7 +313,8 @@ class _ThirdPageState extends State<ThirdPage> {
                                           border: Border.all(),
                                           color: Colors.red),
                                       child: Text("Delete",
-                                          style: TextStyle(color: Colors.white)),
+                                          style:
+                                          TextStyle(color: Colors.white)),
                                     ),
                                   ),
                                 ],
@@ -316,7 +324,8 @@ class _ThirdPageState extends State<ThirdPage> {
                         ),
                       );
                     },
-                    itemCount: jsonDecode(snapshot.data!.body.toString()).length,
+                    itemCount:
+                    jsonDecode(snapshot.data!.body.toString()).length,
                   );
                 } else {
                   return Center(child: CircularProgressIndicator());
@@ -326,50 +335,6 @@ class _ThirdPageState extends State<ThirdPage> {
             )
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        items: [
-          BottomNavigationBarItem(
-              icon: IconButton(
-                onPressed: () {
-                  Navigator.of(context).pop(MaterialPageRoute(
-                    builder: (context) => SecondPage(),
-                  ));
-                },
-                icon: Icon(Icons.arrow_back_ios, color: Colors.black,),
-              ),
-              label: "Bacck to Second page"),
-          BottomNavigationBarItem(
-              icon: IconButton(
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => AddFood(null),
-                  ));
-                },
-                icon: Icon(
-                  Icons.add,
-                  color: Colors.black,
-                ),
-              ),
-              label: ""),
-          BottomNavigationBarItem(
-              icon: IconButton(
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => ForthPage(),
-                  ));
-                },
-                icon: Icon(
-                  Icons.dataset,
-                  color: Colors.black,
-                ),
-              ),
-              label: ""),
-        ],
       ),
     );
     throw UnimplementedError();

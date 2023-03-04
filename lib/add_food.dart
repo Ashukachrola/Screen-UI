@@ -1,3 +1,4 @@
+import 'package:assignment_project/third_page.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -112,7 +113,12 @@ class _AddFoodState extends State<AddFood> {
                           if (_formKey.currentState!.validate()) {
                             if (widget.map == null) {
                               addFood().then(
-                                    (value) => Navigator.of(context).pop(true),
+                                    (value) => Navigator.of(context)
+                                    .push(MaterialPageRoute(
+                                  builder: (context) {
+                                    return ThirdPage();
+                                  },
+                                )),
                               );
                             } else {
                               updateFood(widget.map!['id']).then(

@@ -1,3 +1,4 @@
+import 'package:assignment_project/add_food.dart';
 import 'package:assignment_project/first_page.dart';
 import 'package:assignment_project/third_page.dart';
 import 'package:flutter/material.dart';
@@ -509,7 +510,7 @@ class _SecondPageState extends State<SecondPage> {
                                 ),
                                 textAlign: TextAlign.center,
                               ),
-                            ),
+                            )
                           ],
                         ),
                       ),
@@ -536,7 +537,7 @@ class _SecondPageState extends State<SecondPage> {
                 },
                 icon: Icon(Icons.arrow_back_ios, color: Colors.black,),
               ),
-              label: "Bacck to home page"),
+              label: "Back to home page"),
           BottomNavigationBarItem(
               icon: IconButton(
                 onPressed: () {
@@ -551,7 +552,7 @@ class _SecondPageState extends State<SecondPage> {
               icon: IconButton(
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => ThirdPage(),
+                    builder: (context) => AddFood(null),
                   ));
                 },
                 icon: Icon(
